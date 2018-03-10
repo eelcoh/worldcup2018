@@ -142,16 +142,16 @@ viewCardChrome model card i =
 
         pills =
             List.map (viewPill model i) (List.indexedMap (,) model.cards)
-                |> Element.wrappedRow UI.Style.None [ spacing 7, padding 10 ]
+                |> Element.wrappedRow UI.Style.None [ spacing 3 ]
 
         nav =
             [ UI.Button.pill UI.Style.Potential (NavigateTo prev) "terug"
             , UI.Button.pill UI.Style.Potential (NavigateTo next) "volgende"
             ]
-                |> Element.wrappedRow UI.Style.None [ spacing 7, padding 10 ]
+                |> Element.wrappedRow UI.Style.None [ spacing 5 ]
     in
         Element.column UI.Style.None
-            []
+            [ spacing 36 ]
             [ pills
             , card
             , nav

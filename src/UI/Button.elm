@@ -1,24 +1,24 @@
 module UI.Button exposing (..)
 
+import Bets.Types
 import Element exposing (..)
-import Element.Attributes exposing (center, fill, height, percent, px, verticalCenter, width, padding, center)
+import Element.Attributes exposing (center, fill, height, padding, percent, px, verticalCenter, width)
 import Element.Events exposing (onClick)
 import UI.Grid exposing (Size(..))
-import UI.Style exposing (ButtonSemantics, ScoreButtonSemantics, Style)
+import UI.Style exposing (ButtonSemantics, FontSize(..), Style)
 import UI.Team
-import Bets.Types
 
 
 pill : ButtonSemantics -> msg -> String -> Element Style variation msg
 pill semantics msg buttonText =
     let
         buttonLayout =
-            [ height (px 36), onClick msg, center, verticalCenter ]
+            [ height (px 20), onClick msg, center, verticalCenter ]
 
         textElement =
-            Element.el UI.Style.Score [ padding 10 ] (text buttonText)
+            Element.el UI.Style.Score [ padding 5 ] (text buttonText)
     in
-        Element.column (UI.Style.Button semantics) buttonLayout [ textElement ]
+        Element.column (UI.Style.Button semantics SmallFont) buttonLayout [ textElement ]
 
 
 submit : ButtonSemantics -> msg -> String -> Element Style variation msg
@@ -30,7 +30,7 @@ submit semantics msg buttonText =
         textElement =
             Element.el UI.Style.Score [ padding 10 ] (text buttonText)
     in
-        Element.column (UI.Style.Button semantics) buttonLayout [ textElement ]
+        Element.column (UI.Style.Button semantics LargeFont) buttonLayout [ textElement ]
 
 
 button : Size -> ButtonSemantics -> msg -> String -> Element Style variation msg
@@ -65,18 +65,18 @@ button sz semantics msg buttonText =
         buttonLayout =
             [ w, h, onClick msg, Element.Attributes.center, Element.Attributes.verticalCenter ]
     in
-        el (UI.Style.Button semantics) buttonLayout (text buttonText)
+        el (UI.Style.Button semantics NormalFont) buttonLayout (text buttonText)
 
 
-scoreButton : ScoreButtonSemantics -> msg -> String -> Element Style variation msg
+scoreButton : ButtonSemantics -> msg -> String -> Element Style variation msg
 scoreButton semantics msg buttonText =
     let
         w =
-            px 48
+            px 36
                 |> width
 
         h =
-            px 28
+            px 24
                 |> height
 
         buttonLayout =
@@ -85,11 +85,11 @@ scoreButton semantics msg buttonText =
         textElement =
             Element.el UI.Style.Score [] (text buttonText)
     in
-        Element.column (UI.Style.ScoreButton semantics) buttonLayout [ textElement ]
+        Element.column (UI.Style.Button semantics SmallFont) buttonLayout [ textElement ]
 
 
 teamButton :
-    UI.Style.TeamButtonSemantics
+    UI.Style.ButtonSemantics
     -> msg
     -> Bets.Types.Team
     -> Element Style variation msg
@@ -98,7 +98,7 @@ teamButton semantics msg team =
 
 
 maybeTeamButton :
-    UI.Style.TeamButtonSemantics
+    UI.Style.ButtonSemantics
     -> msg
     -> Maybe Bets.Types.Team
     -> Element Style variation msg
@@ -116,11 +116,11 @@ maybeTeamButton semantics msg team =
         textElement =
             Element.el UI.Style.TeamName [] (UI.Team.viewTeamEl (team))
     in
-        Element.column (UI.Style.TeamButton semantics) buttonLayout [ textElement ]
+        Element.column (UI.Style.Button semantics UI.Style.SmallFont) buttonLayout [ textElement ]
 
 
 maybeTeamBadge :
-    UI.Style.TeamButtonSemantics
+    UI.Style.ButtonSemantics
     -> Maybe Bets.Types.Team
     -> Element Style variation msg
 maybeTeamBadge semantics team =
@@ -137,4 +137,4 @@ maybeTeamBadge semantics team =
         textElement =
             Element.el UI.Style.TeamName [] (UI.Team.viewTeamEl (team))
     in
-        Element.column (UI.Style.TeamButton semantics) buttonLayout [ textElement ]
+        Element.column (UI.Style.Button semantics NormalFont) buttonLayout [ textElement ]

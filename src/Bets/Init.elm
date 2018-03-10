@@ -376,7 +376,7 @@ answers =
         , "m22" => answerGroupMatch C c4 c2 "2018/06/21 14:00" samara
         , "m21" => answerGroupMatch C c1 c3 "2018/06/21 17:00" jekaterinenburg
         , "m37" => answerGroupMatch C c4 c1 "2018/06/26 16:00" moskou
-        , "m37" => answerGroupMatch C c2 c3 "2018/06/26 16:00" sotsji
+        , "m38" => answerGroupMatch C c2 c3 "2018/06/26 16:00" sotsji
           -- group D
         , "m07" => answerGroupMatch D d1 d2 "2018/06/16 15:00" spartak
         , "m08" => answerGroupMatch D d3 d4 "2018/06/16 21:00" kaliningrad

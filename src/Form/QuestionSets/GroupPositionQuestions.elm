@@ -123,9 +123,9 @@ mkButton answer forGrp forPos ( grp, team, pos ) =
     let
         c =
             if pos == forPos then
-                UI.Style.TBSelected
+                UI.Style.Selected
             else
-                UI.Style.TBPotential
+                UI.Style.Potential
 
         msg =
             SetTeam answer forGrp team

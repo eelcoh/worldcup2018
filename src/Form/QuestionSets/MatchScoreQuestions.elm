@@ -226,7 +226,7 @@ viewKeyboard : a -> Answer -> Element.Element UI.Style.Style variation Msg
 viewKeyboard model answer =
     let
         toButton ( _, ( h, a, t ) ) =
-            scoreButton UI.Style.SBPotential answer h a t
+            scoreButton UI.Style.Potential answer h a t
 
         toRow scoreList =
             Element.row UI.Style.ScoreRow
@@ -238,7 +238,7 @@ viewKeyboard model answer =
             (List.map toRow scores)
 
 
-scoreButton : UI.Style.ScoreButtonSemantics -> Answer -> Int -> Int -> String -> Element.Element UI.Style.Style variation Msg
+scoreButton : UI.Style.ButtonSemantics -> Answer -> Int -> Int -> String -> Element.Element UI.Style.Style variation Msg
 scoreButton c answer home away t =
     let
         msg =

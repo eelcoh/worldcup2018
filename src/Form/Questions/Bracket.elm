@@ -210,13 +210,13 @@ mkButton answer wnnr slot isSelected bracket =
         s =
             case isSelected of
                 Yes ->
-                    UI.Style.TBSelected
+                    UI.Style.Selected
 
                 No ->
-                    UI.Style.TBPotential
+                    UI.Style.Potential
 
                 Undecided ->
-                    UI.Style.TBPotential
+                    UI.Style.Potential
 
         answerId =
             Tuple.first answer
@@ -243,10 +243,10 @@ mkButtonChamp mBracket =
         s =
             case mTeam of
                 Just t ->
-                    UI.Style.TBSelected
+                    UI.Style.Selected
 
                 Nothing ->
-                    UI.Style.TBPotential
+                    UI.Style.Potential
 
         attrs =
             []

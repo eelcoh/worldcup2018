@@ -173,7 +173,9 @@ viewPlayers bet answerId topscorer teamData =
 
             Just teamWP ->
                 Element.wrappedRow UI.Style.None
-                    [ width (px 600), padding 10, spacing 7 ]
+                    [ width (px 600)
+                    , spacing 7
+                    ]
                     (List.map (mkPlayerButton (SelectPlayer answerId)) (players teamWP))
 
 
@@ -186,10 +188,10 @@ mkTeamButton act ( teamDatum, isSelected ) =
         c =
             case isSelected of
                 Selected ->
-                    UI.Style.TBSelected
+                    UI.Style.Selected
 
                 _ ->
-                    UI.Style.TBPotential
+                    UI.Style.Potential
 
         team =
             .team teamDatum

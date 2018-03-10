@@ -87,13 +87,13 @@ displayTeam act ( grp, team, pos ) =
         c =
             case pos of
                 TopThird ->
-                    UI.Style.TBSelected
+                    UI.Style.Selected
 
                 Third ->
-                    UI.Style.TBPotential
+                    UI.Style.Potential
 
                 _ ->
-                    UI.Style.TBInactive
+                    UI.Style.Inactive
 
         msg =
             (act grp team)
